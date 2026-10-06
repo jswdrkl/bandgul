@@ -1,347 +1,339 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="mr" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>बांडगूळ(च)</title>
+  
+  <!-- IBM Plex Sans Devanagari & Latin -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            plex: ['"IBM Plex Sans Devanagari"', '"IBM Plex Sans"', 'sans-serif'],
+          },
+          colors: {
+            parchment: '#faf7f2',
+            parchmentDark: '#16181b',
+            cardLight: '#ffffff',
+            cardDark: '#1f2329',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --primary: #059669;
-      --primary-light: #ecfdf5;
-      --accent: #d97706;
-      --border: #e2e8f0;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-      --btn-bg: #f1f5f9;
-      --btn-hover: #e2e8f0;
-    }
-
-    [data-theme="dark"] {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --primary: #10b981;
-      --primary-light: #064e3b;
-      --accent: #f59e0b;
-      --border: #334155;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
-      --btn-bg: #334155;
-      --btn-hover: #475569;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'IBM Plex Sans Devanagari', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.85;
-      padding: 24px 16px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      display: flex;
-      justify-content: center;
-      min-height: 100vh;
+      font-family: 'IBM Plex Sans Devanagari', 'IBM Plex Sans', sans-serif;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      hyphens: none;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      width: 100%;
-      max-width: 760px;
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      padding: 36px 32px;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .top-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-
-    .icon-btn {
-      background-color: var(--btn-bg);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 8px 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background-color 0.2s, transform 0.1s;
-      outline: none;
-    }
-
-    .icon-btn:hover {
-      background-color: var(--btn-hover);
-    }
-
-    .icon-btn:active {
-      transform: scale(0.97);
-    }
-
-    .icon-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .title {
-      font-size: clamp(2rem, 5vw, 2.5rem);
-      font-weight: 700;
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 24px;
-      letter-spacing: -0.5px;
-    }
-
-    .illustration-wrapper {
-      margin: 0 auto 32px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .illustration {
-      width: 100%;
-      max-width: 520px;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
-      border: 1px solid var(--border);
-    }
-
-    .content {
+    /* Strict word unbroken justified body paragraphs */
+    .article-text {
       text-align: justify;
       text-justify: inter-word;
-      word-break: keep-all;
-      hyphens: none;
-      -webkit-hyphens: none;
-      font-size: 1.075rem;
+      line-height: 2.1;
+      letter-spacing: 0.015em;
     }
 
-    .content p {
-      margin-bottom: 20px;
-      text-align: justify;
-      text-justify: inter-word;
-      word-break: keep-all;
-      hyphens: none;
-      -webkit-hyphens: none;
+    /* SVG subtle floating and pulse animations */
+    @keyframes gentleSway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(1.2deg); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.4)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.7)); }
+    }
+    @keyframes leafBreeze {
+      0%, 100% { transform: scale(1) translateY(0); }
+      50% { transform: scale(1.05) translateY(-2px); }
     }
 
-    .date-stamp {
-      text-align: right;
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 0.95rem;
-      margin-top: 24px;
+    .sway-element {
+      transform-origin: 300px 170px;
+      animation: gentleSway 6s ease-in-out infinite;
+    }
+    .parasite-glow {
+      animation: glowPulse 3.5s ease-in-out infinite;
+    }
+    .leaf-flutter {
+      animation: leafBreeze 4s ease-in-out infinite alternate;
     }
 
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background-color: var(--primary);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      font-size: 14px;
-      font-weight: 500;
+    /* Toast notification animation */
+    .toast-enter {
       opacity: 0;
-      pointer-events: none;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      z-index: 1000;
+      transform: translate(-50%, 20px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
+    .toast-show {
       opacity: 1;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 12px 8px;
-      }
-      .container {
-        padding: 24px 18px;
-        border-radius: 16px;
-      }
-      .content {
-        font-size: 1rem;
-        line-height: 1.75;
-      }
+      transform: translate(-50%, 0);
     }
   </style>
 </head>
-<body>
 
-  <main class="container">
-    <div class="top-actions">
-      <button class="icon-btn" id="shareBtn" aria-label="Share">
-        <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      </button>
-      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
-        <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-    </div>
+<body class="bg-parchment dark:bg-parchmentDark text-stone-800 dark:text-stone-200 transition-colors duration-300 min-h-screen flex flex-col justify-between selection:bg-amber-200 dark:selection:bg-amber-900 selection:text-stone-900">
 
-    <h1 class="title">बांडगूळ(च)</h1>
-
-    <div class="illustration-wrapper">
-      <svg class="illustration" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="झाड आणि बांडगूळ वनस्पतीचे रेखाचित्र">
-        <defs>
-          <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#d1fae5"/>
-            <stop offset="100%" stop-color="#f0fdf4"/>
-          </linearGradient>
-          <linearGradient id="skyDarkGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#1e293b"/>
-            <stop offset="100%" stop-color="#0f172a"/>
-          </linearGradient>
-          <linearGradient id="trunkGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#78350f"/>
-            <stop offset="100%" stop-color="#92400e"/>
-          </linearGradient>
-          <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#10b981"/>
-            <stop offset="100%" stop-color="#047857"/>
-          </linearGradient>
-          <linearGradient id="mistletoeGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#f59e0b"/>
-            <stop offset="100%" stop-color="#d97706"/>
-          </linearGradient>
-        </defs>
-        <rect width="600" height="320" fill="url(#skyGrad)" class="svg-bg"/>
-        <path d="M 0,270 Q 150,250 300,265 T 600,260 L 600,320 L 0,320 Z" fill="#6ee7b7" opacity="0.45"/>
-        <path d="M 0,285 Q 200,275 400,285 T 600,280 L 600,320 L 0,320 Z" fill="#34d399" opacity="0.6"/>
-        <!-- Deep Roots -->
-        <g stroke="#78350f" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.6">
-          <path d="M 280,280 Q 260,300 240,315"/>
-          <path d="M 300,280 Q 300,305 310,320"/>
-          <path d="M 320,280 Q 340,300 360,315"/>
-        </g>
-        <!-- Trunk & Branches -->
-        <path d="M 285,280 Q 288,200 260,165 Q 240,140 180,120 Q 230,135 275,150 Q 285,130 295,95 Q 305,130 325,145 Q 370,130 430,110 Q 370,135 335,160 Q 312,195 315,280 Z" fill="url(#trunkGrad)"/>
-        <!-- Healthy Foliage -->
-        <circle cx="170" cy="115" r="42" fill="url(#leafGrad)" opacity="0.9"/>
-        <circle cx="210" cy="90" r="46" fill="url(#leafGrad)" opacity="0.88"/>
-        <circle cx="295" cy="80" r="54" fill="url(#leafGrad)" opacity="0.92"/>
-        <circle cx="255" cy="70" r="40" fill="url(#leafGrad)" opacity="0.85"/>
-        <circle cx="340" cy="75" r="46" fill="url(#leafGrad)" opacity="0.85"/>
-        <circle cx="430" cy="105" r="38" fill="url(#leafGrad)" opacity="0.88"/>
-        <!-- Parasitic Plant (बांडगूळ / 'च') on right branch -->
-        <g transform="translate(355, 140)">
-          <!-- Parasite cluster -->
-          <circle cx="0" cy="0" r="22" fill="url(#mistletoeGrad)"/>
-          <circle cx="-12" cy="-8" r="14" fill="#fbbf24"/>
-          <circle cx="14" cy="-5" r="15" fill="#f59e0b"/>
-          <circle cx="6" cy="12" r="13" fill="#d97706"/>
-          <path d="M -6,-18 Q -15,-30 -3,-38 Q 6,-30 0,-18 Z" fill="#fbbf24"/>
-          <path d="M 12,-14 Q 28,-24 24,-34 Q 12,-28 10,-14 Z" fill="#f59e0b"/>
-          <path d="M 18,2 Q 35,6 36,-6 Q 25,-4 16,-1 Z" fill="#d97706"/>
-          <!-- Berries -->
-          <circle cx="-3" cy="-2" r="3.5" fill="#ef4444"/>
-          <circle cx="8" cy="3" r="3" fill="#ef4444"/>
-          <circle cx="-8" cy="8" r="2.5" fill="#dc2626"/>
-          <!-- Symbolic letter 'च' on the parasite -->
-          <text x="0" y="5" font-family="'IBM Plex Sans Devanagari', sans-serif" font-size="16" font-weight="700" fill="#78350f" text-anchor="middle" dominant-baseline="middle">च</text>
-        </g>
+  <!-- Top floating action bar -->
+  <header class="w-full max-w-4xl mx-auto px-6 pt-6 flex justify-end items-center">
+    <button 
+      id="themeToggleBtn" 
+      aria-label="Toggle Theme"
+      class="p-2.5 rounded-full bg-white/80 dark:bg-stone-800/80 backdrop-blur border border-amber-900/10 dark:border-stone-700 shadow-sm hover:shadow-md transition-all text-stone-700 dark:text-stone-200 active:scale-95 focus:outline-none"
+    >
+      <!-- Sun Icon (shown in dark mode) -->
+      <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
       </svg>
+      <!-- Moon Icon (shown in light mode) -->
+      <svg id="moonIcon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+      </svg>
+    </button>
+  </header>
+
+  <main class="w-full max-w-3xl mx-auto px-5 sm:px-8 py-6 flex-grow">
+    
+    <!-- Title Section with Animated Light Colorful Artwork -->
+    <div class="flex flex-col items-center mb-8">
+      <div class="w-full max-w-md my-2">
+        <svg viewBox="0 0 600 240" class="w-full h-auto drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Branch Gradients -->
+            <linearGradient id="branchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8d6e63" />
+              <stop offset="50%" stop-color="#6d4c41" />
+              <stop offset="100%" stop-color="#4e342e" />
+            </linearGradient>
+
+            <!-- Healthy Leaf Gradients -->
+            <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#86efac" />
+              <stop offset="100%" stop-color="#16a34a" />
+            </linearGradient>
+            <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#a7f3d0" />
+              <stop offset="100%" stop-color="#059669" />
+            </linearGradient>
+
+            <!-- Parasite Colorful Gradients (Vibrant / Golden-Amber) -->
+            <linearGradient id="parasiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="50%" stop-color="#ef4444" />
+              <stop offset="100%" stop-color="#ec4899" />
+            </linearGradient>
+
+            <!-- Flower Petal Gradient -->
+            <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fbcfe8" />
+              <stop offset="100%" stop-color="#f43f5e" />
+            </linearGradient>
+          </defs>
+
+          <!-- Group with Gentle Natural Sway -->
+          <g class="sway-element">
+            <!-- Main Host Tree Branch (The 'मी' - Grounded, Sturdy) -->
+            <path d="M 40 180 C 130 185, 220 170, 310 155 C 390 140, 480 150, 560 140" 
+                  fill="none" stroke="url(#branchGrad)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M 230 168 C 260 140, 275 110, 290 85" 
+                  fill="none" stroke="url(#branchGrad)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M 410 146 C 440 125, 470 120, 510 105" 
+                  fill="none" stroke="url(#branchGrad)" stroke-width="7" stroke-linecap="round"/>
+
+            <!-- Healthy Host Leaves & Fruitful Life -->
+            <g class="leaf-flutter">
+              <path d="M 285 85 C 270 65, 305 50, 315 75 C 320 90, 295 95, 285 85 Z" fill="url(#leafGrad1)" opacity="0.95"/>
+              <path d="M 265 105 C 235 95, 240 70, 260 85 C 275 95, 275 110, 265 105 Z" fill="url(#leafGrad2)" opacity="0.95"/>
+              <path d="M 505 105 C 525 80, 545 95, 535 115 C 525 125, 500 115, 505 105 Z" fill="url(#leafGrad1)" opacity="0.9"/>
+              <path d="M 460 120 C 455 95, 480 95, 485 110 C 490 125, 470 130, 460 120 Z" fill="url(#leafGrad2)" opacity="0.9"/>
+              <path d="M 120 180 C 95 160, 110 140, 130 155 C 145 168, 135 185, 120 180 Z" fill="url(#leafGrad1)" opacity="0.85"/>
+              
+              <!-- Pure fragrant natural blossoms -->
+              <circle cx="295" cy="72" r="5" fill="url(#petalGrad)"/>
+              <circle cx="525" cy="100" r="5.5" fill="url(#petalGrad)"/>
+              <circle cx="125" cy="158" r="4.5" fill="#fef08a"/>
+            </g>
+
+            <!-- Parasitic Mistletoe Cluster: बांडगूळ(च) entwining the host branch -->
+            <g class="parasite-glow">
+              <!-- Creeping parasitic vine winding closely onto the bark -->
+              <path d="M 330 155 C 345 130, 335 110, 360 95 C 375 85, 395 90, 400 115 C 405 135, 375 145, 390 150" 
+                    fill="none" stroke="url(#parasiteGrad)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="2 0.5"/>
+              
+              <!-- Parasite leaves (showy, enticing, yet rootless) -->
+              <path d="M 355 95 C 340 80, 350 65, 365 72 C 375 80, 370 95, 355 95 Z" fill="url(#parasiteGrad)" opacity="0.9"/>
+              <path d="M 385 90 C 405 75, 415 90, 405 105 C 395 112, 380 100, 385 90 Z" fill="url(#parasiteGrad)" opacity="0.9"/>
+              <path d="M 395 125 C 420 120, 420 140, 405 140 C 390 140, 385 130, 395 125 Z" fill="url(#parasiteGrad)" opacity="0.85"/>
+
+              <!-- Vibrant berries/pearls of the mistletoe -->
+              <circle cx="365" cy="105" r="5" fill="#fb7185"/>
+              <circle cx="380" cy="120" r="4.5" fill="#f43f5e"/>
+              <circle cx="350" cy="125" r="4" fill="#fbbf24"/>
+
+              <!-- Devanagari 'च' motif symbolically nested in the parasitic cluster -->
+              <text x="365" y="118" 
+                    font-family="'IBM Plex Sans Devanagari', sans-serif" 
+                    font-weight="700" 
+                    font-size="24" 
+                    fill="#ffffff" 
+                    filter="drop-shadow(0 1px 2px rgba(0,0,0,0.5))"
+                    text-anchor="middle">च</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Main Document Title -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-amber-950 dark:text-amber-100 text-center mt-2">
+        बांडगूळ(च)
+      </h1>
+      <div class="w-16 h-1 bg-gradient-to-r from-amber-400 via-rose-400 to-amber-500 rounded-full mt-4"></div>
     </div>
 
-    <article class="content">
-      <p>बांडगूळ किंवा बांदी ही इतर वृक्षांच्या फांद्यांवर वाढणारी एक परजीवी वनस्पती आहे. तिला स्वतःची मुळे नसतात. आश्रयी वनस्पतीवर ती पाणी आणि क्षार यांसाठी अवलंबून असते. म्हणून त्याला ‘अर्धपरजीवी’ म्हणतात. बांदी अतिशय कमी कालावधीत वाढते. ती बऱ्याचदा मूळ वनस्पतीपेक्षा आकर्षक देखील दिसते. बांडगुळाच्या मुळ्या मूळ झाडाच्या खोडातील अन्न, पाणी शोषून घेतात व झपाट्याने वाढतात पण त्यामुळे मूळ झाड कमकुवत होते, अनुत्पादक होते आणि बांडगूळ मात्र फोफावते. अशी ही बांदी म्हणजे मूळ झाडाचा शत्रू किंवा एक प्रकारची कीडच असते. तिचे निर्दालन करण्यासाठी जिथून बांडगूळ वाढायला सुरवात झाली आहे, त्या पाठीमागे काही अंतरावरून मूळ झाडाची फांदीच छाटून टाकली तर त्याचे निर्मूलन करता येते.</p>
+    <!-- Content Section -->
+    <article class="space-y-6 text-[1.075rem] sm:text-[1.175rem] text-stone-800 dark:text-stone-200">
+      
+      <p class="article-text">
+        बांडगूळ किंवा बांदी ही इतर वृक्षांच्या फांद्यांवर वाढणारी एक परजीवी वनस्पती आहे. तिला स्वतःची मुळे नसतात. आश्रयी वनस्पतीवर ती पाणी आणि क्षार यांसाठी अवलंबून असते. म्हणून त्याला ‘अर्धपरजीवी’ म्हणतात. बांदी अतिशय कमी कालावधीत वाढते. ती बऱ्याचदा मूळ वनस्पतीपेक्षा आकर्षक देखील दिसते. बांडगुळाच्या मुळ्या मूळ झाडाच्या खोडातील अन्न, पाणी शोषून घेतात व झपाट्याने वाढतात पण त्यामुळे मूळ झाड कमकुवत होते, अनुत्पादक होते आणि बांडगूळ मात्र फोफावते. अशी ही बांदी म्हणजे मूळ झाडाचा शत्रू किंवा एक प्रकारची कीडच असते. तिचे निर्दालन करण्यासाठी जिथून बांडगूळ वाढायला सुरवात झाली आहे, त्या पाठीमागे काही अंतरावरून मूळ झाडाची फांदीच छाटून टाकली तर त्याचे निर्मूलन करता येते.
+      </p>
 
-      <p>कोणत्याही झाडाप्रमाणे आपल्यातल्या प्रत्येकाचे या जगात असलेले स्वतंत्र अस्तित्व म्हणजे प्रत्येकाच्या आतला ज्याच्या त्याच्या गुण-दोषांनी युक्त असा ‘मी’. हा मूळचा ‘मी’ प्रेम, सद्भाव, निरागसता, करुणा, क्षमाशीलता यासारख्या सद्गुणांनी भरलेला असतो. त्यात नैसर्गिकरित्या काही कमीपणा देखील असतो. हे ‘स्वत्व’ आणि त्याचा स्वाभिमान हे प्रत्येक ‘मी’ चे निर्दोष अस्तित्व असते असे म्हणता येईल.</p>
+      <div class="text-center text-amber-700/70 dark:text-amber-400/70 tracking-[0.5em] text-xl select-none py-2">
+        ⚝⚝⚝
+      </div>
 
-      <p>जसजसे वय वाढू लागते तसतसे या प्रत्येक ‘मी’ मधील उपजत गुण विकसित होत जातात. या गुणांचा, कलेचा, ज्ञानाचा वापर करून काही केले की साहजिक त्याचे कौतुक होते. मग त्याने अधिक उमेद येते. हातून काही ‘फ्रूटफूल’ घडू लागते व उत्साह द्विगुणित होतो.</p>
+      <p class="article-text">
+        कोणत्याही झाडाप्रमाणे आपल्यातल्या प्रत्येकाचे या जगात असलेले स्वतंत्र अस्तित्व म्हणजे प्रत्येकाच्या आतला ज्याच्या त्याच्या गुण-दोषांनी युक्त असा ‘मी’. हा मूळचा ‘मी’ प्रेम, सद्भाव, निरागसता, करुणा, क्षमाशीलता यासारख्या सद्गुणांनी भरलेला असतो. त्यात नैसर्गिकरित्या काही कमीपणा देखील असतो. हे ‘स्वत्व’ आणि त्याचा स्वाभिमान हे प्रत्येक ‘मी’ चे निर्दोष अस्तित्व असते असे म्हणता येईल.
+      </p>
 
-      <p>पण कधीकधी या ‘मी’ला ‘च’ची लागण होते. त्याला असे वाटू लागते की जे काही तो निर्माण करतो आहे, जे ज्ञान इतरांना देतो आहे, संपत्ती, पैसा-अडका, मानमरातब मिळवतो आहे ते सर्व काही तो-च करतो आहे. असे झाले की मग मी-च सर्वश्रेष्ठ आहे. सर्व काही मला-च येते, मला-च जमते यासारखे बरेच ‘च’ त्या ‘मी’ च्या अंगाखांद्यावर फोफावू लागतात.</p>
+      <p class="article-text">
+        जसजसे वय वाढू लागते तसतसे या प्रत्येक ‘मी’ मधील उपजत गुण विकसित होत जातात. या गुणांचा, कलेचा, ज्ञानाचा वापर करून काही केले की साहजिक त्याचे कौतुक होते. मग त्याने अधिक उमेद येते. हातून काही ‘फ्रूटफूल’ घडू लागते व उत्साह द्विगुणित होतो.
+      </p>
 
-      <p>ही ‘च’ ची बाधा फक्त गुणांपुरती मर्यादित नसते. प्रत्येक ‘मी’ काही सर्वगुणसंपन्न नसतो. त्याला काही गोष्टी नाही जमत. या अत्यंत नैसर्गिक असलेल्या ‘न-जमण्या’ला देखील हा ‘च’ चिकटू शकतो आणि मग त्या ‘मी’ ला मला जमत नाहीये ऐवजी ‘मला-च’ जमत नाही असे वाटून न्यूनगंडाची बाधा होऊ शकते.</p>
+      <p class="article-text">
+        पण कधीकधी या ‘मी’ला ‘च’ची लागण होते. त्याला असे वाटू लागते की जे काही तो निर्माण करतो आहे, जे ज्ञान इतरांना देतो आहे, संपत्ती, पैसा-अडका, मानमरातब मिळवतो आहे ते सर्व काही तो-च करतो आहे. असे झाले की मग मी-च सर्वश्रेष्ठ आहे. सर्व काही मला-च येते, मला-च जमते यासारखे बरेच ‘च’ त्या ‘मी’ च्या अंगाखांद्यावर फोफावू लागतात.
+      </p>
 
-      <p>हा जो चटकन पसरणारा ‘च’ असतो तो म्हणजे दुसरे तिसरे काही नसून मुळातल्या ‘मी’वर उगवलेले ‘बांडगूळ-च’ असते. या ‘च’ ची फुगणारी संख्या म्हणजे वाढीस लागलेला अहंकार. ‘मला-च’ सर्व काही येते आणि मला काहीही ‘जमत-च’ नाही असे वाटत राहणे ही दोन्हीही अहंकाराचीच लक्षणे आहेत.</p>
+      <p class="article-text">
+        ही ‘च’ ची बाधा फक्त गुणांपुरती मर्यादित नसते. प्रत्येक ‘मी’ काही सर्वगुणसंपन्न नसतो. त्याला काही गोष्टी नाही जमत. या अत्यंत नैसर्गिक असलेल्या ‘न-जमण्या’ला देखील हा ‘च’ चिकटू शकतो आणि मग त्या ‘मी’ ला मला जमत नाहीये ऐवजी ‘मला-च’ जमत नाही असे वाटून न्यूनगंडाची बाधा होऊ शकते.
+      </p>
 
-      <p>हा अहंकारी ‘च’ बाह्यतः आकर्षक भासतो. सुरुवातीस त्याच्या असण्याने काही गोष्टी सहजसाध्य होतात. पण तो जसजसा फोफावू लागतो तसतसा मूळ ‘मी’ चे स्वत्व अधिकाधिक शोषून घ्यायला लागतो. ‘मी’चे मूळचे सात्विक गुणधर्म त्यामुळे लोप पावू लागतात. ‘मी’ ऐवजी ‘च’च अधिकाधिक मोठा व आक्रमक होऊ लागतो. ही आक्रमकता मग त्याला आणि पर्यायाने तो ज्यावर बांदीसारखा वाढला आहे त्या ‘मी’ ला आजूबाजूच्या जगापासून दूर नेऊ लागते.</p>
+      <p class="article-text">
+        हा जो चटकन पसरणारा ‘च’ असतो तो म्हणजे दुसरे तिसरे काही नसून मुळातल्या ‘मी’वर उगवलेले ‘बांडगूळ-च’ असते. या ‘च’ ची फुगणारी संख्या म्हणजे वाढीस लागलेला अहंकार. ‘मला-च’ सर्व काही येते आणि मला काहीही ‘जमत-च’ नाही असे वाटत राहणे ही दोन्हीही अहंकाराचीच लक्षणे आहेत.
+      </p>
 
-      <p>उत्तम सुगंधी फुले आणि स्वादिष्ट रसदार फळे फक्त जमिनीत घट्ट मुळे रोवून स्वतःच्या हिमतीवर ऊन-वारा-पावसाला खंबीरपणे तोंड देत उभ्या असलेल्या झाडाला लागतात पण बांडगूळ परोपजीवी असते; त्याला सहसा फळे-फुले येत नाहीत. तद्वत; अहंकारी ‘च’ ची बांदी ‘मी’ वरती जास्त प्रमाणात फोफावली की ‘मी’ चे मूळचे गुण हरवून जाऊ लागतात. त्याच्या हातून काहीच ‘फ्रूटफूल’ घडेनासे होते.</p>
+      <p class="article-text">
+        हा अहंकारी ‘च’ बाह्यतः आकर्षक भासतो. सुरुवातीस त्याच्या असण्याने काही गोष्टी सहजसाध्य होतात. पण तो जसजसा फोफावू लागतो तसतसा मूळ ‘मी’ चे स्वत्व अधिकाधिक शोषून घ्यायला लागतो. ‘मी’चे मूळचे सात्विक गुणधर्म त्यामुळे लोप पावू लागतात. ‘मी’ ऐवजी ‘च’च अधिकाधिक मोठा व आक्रमक होऊ लागतो. ही आक्रमकता मग त्याला आणि पर्यायाने तो ज्यावर बांदीसारखा वाढला आहे त्या ‘मी’ ला आजूबाजूच्या जगापासून दूर नेऊ लागते.
+      </p>
 
-      <p>पण खरे पाहता मुळातला ‘मी’ जर नसेल तर या ‘च’ ला काहीच अस्तित्व नसते. कारण कितीही मोठा झाला, फोफावला तरी तो अर्धपरजीवी बांदी असतो. प्रत्येक अहंकारी ‘च’ त्याच्या चकाकीसाठी संपूर्णपणे मूळ ‘मी’ वर अवलंबून असतो.</p>
+      <p class="article-text">
+        उत्तम सुगंधी फुले आणि स्वादिष्ट रसदार फळे फक्त जमिनीत घट्ट मुळे रोवून स्वतःच्या हिमतीवर ऊन-वारा-पावसाला खंबीरपणे तोंड देत उभ्या असलेल्या झाडाला लागतात पण बांडगूळ परोपजीवी असते; त्याला सहसा फळे-फुले येत नाहीत. तद्वत; अहंकारी ‘च’ ची बांदी ‘मी’ वरती जास्त प्रमाणात फोफावली की ‘मी’ चे मूळचे गुण हरवून जाऊ लागतात. त्याच्या हातून काहीच ‘फ्रूटफूल’ घडेनासे होते.
+      </p>
 
-      <p>कोणतीही बांदी समूळ नष्ट करण्यासाठी ज्याप्रमाणे मूळ झाडाची थोडीशी फांदी कापावी लागते, त्याप्रमाणे हा अहंकारी ‘च’ टाकून देऊन मूळच्या निरागस-गुणसंपन्न ‘मी’ चे ‘स्वत्व’ परत मिळवायचे असेल तर प्रसंगी थोडासा स्वाभिमान बाजूला ठेवून आपली स्वतःची खोलवर रुजलेली संस्कारांची मुळे आणि चांगल्या सवयींचा भक्कम बुंधा यांच्यावर भरवसा ठेवून काही फांद्यांवर फोफावलेले हे ‘च’ त्या फांद्या छाटून टाकत वेचून वेचून नष्ट करणे फायद्याचे ठरते.</p>
+      <p class="article-text">
+        पण खरे पाहता मुळातला ‘मी’ जर नसेल तर या ‘च’ ला काहीच अस्तित्व नसते. कारण कितीही मोठा झाला, फोफावला तरी तो अर्धपरजीवी बांदी असतो. प्रत्येक अहंकारी ‘च’ त्याच्या चकाकीसाठी संपूर्णपणे मूळ ‘मी’ वर अवलंबून असतो.
+      </p>
 
-      <p>‘मी’ला त्याच्या मूळ रूपात स्वाभिमानाने आणि दिमाखाने जगायचे असेल तर त्यास अहंकाराच्या ‘च’ची बाधा होऊ नये यासाठी सतत दक्ष राहणे इष्ट असते. कारण लांबून बघताना जरी तो ‘च’ आकर्षक भासला तरी अंतिमतः ते ‘बांडगूळ-च’ असते.</p>
+      <p class="article-text">
+        कोणतीही बांदी समूळ नष्ट करण्यासाठी ज्याप्रमाणे मूळ झाडाची थोडीशी फांदी कापावी लागते, त्याप्रमाणे हा अहंकारी ‘च’ टाकून देऊन मूळच्या निरागस-गुणसंपन्न ‘मी’ चे ‘स्वत्व’ परत मिळवायचे असेल तर प्रसंगी थोडासा स्वाभिमान बाजूला ठेवून आपली स्वतःची खोलवर रुजलेली संस्कारांची मुळे आणि चांगल्या सवयींचा भक्कम बुंधा यांच्यावर भरवसा ठेवून काही फांद्यांवर फोफावलेले हे ‘च’ त्या फांद्या छाटून टाकत वेचून वेचून नष्ट करणे फायद्याचे ठरते.
+      </p>
 
-      <div class="date-stamp">~२०२५०३२१</div>
+      <p class="article-text">
+        ‘मी’ला त्याच्या मूळ रूपात स्वाभिमानाने आणि दिमाखाने जगायचे असेल तर त्यास अहंकाराच्या ‘च’ची बाधा होऊ नये यासाठी सतत दक्ष राहणे इष्ट असते. कारण लांबून बघताना जरी तो ‘च’ आकर्षक भासला तरी अंतिमतः ते ‘बांडगूळ-च’ असते.
+      </p>
+
+      <div class="text-center text-amber-700/70 dark:text-amber-400/70 tracking-[0.5em] text-xl select-none pt-4">
+        ⚝⚝⚝
+      </div>
+
+      <div class="text-center font-normal text-stone-600 dark:text-stone-400 text-base tracking-wider pt-1 pb-6">
+        ⚝२०२५०३२१⚝
+      </div>
+
     </article>
+
+    <div class="mt-8 mb-12 flex flex-col items-center justify-center">
+      <button 
+        id="shareBtn"
+        class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-700 hover:to-rose-700 text-white font-medium text-base shadow-md hover:shadow-lg active:scale-95 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+        </svg>
+        <span>शेअर करा</span>
+      </button>
+    </div>
+
   </main>
 
-  <div class="toast" id="toast"></div>
+  <!-- Non-intrusive Toast for feedback -->
+  <div 
+    id="toastBox" 
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 pointer-events-none z-50 px-5 py-2.5 rounded-full bg-stone-900/90 dark:bg-white/90 text-white dark:text-stone-900 text-sm font-medium shadow-xl backdrop-blur transition-all duration-300 opacity-0 translate-y-4"
+  >
+    लिंक कॉपी झाली!
+  </div>
 
   <script>
-    const themeBtn = document.getElementById('themeBtn');
-    const shareBtn = document.getElementById('shareBtn');
-    const toast = document.getElementById('toast');
-
-    const moonIcon = `<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-    const sunIcon = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+    // Theme Management
+    const htmlElem = document.documentElement;
+    const themeBtn = document.getElementById('themeToggleBtn');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
 
     function applyTheme(isDark) {
       if (isDark) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeBtn.innerHTML = sunIcon;
-        document.querySelector('.svg-bg')?.setAttribute('fill', 'url(#skyDarkGrad)');
+        htmlElem.classList.add('dark');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
       } else {
-        document.documentElement.removeAttribute('data-theme');
-        themeBtn.innerHTML = moonIcon;
-        document.querySelector('.svg-bg')?.setAttribute('fill', 'url(#skyGrad)');
+        htmlElem.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
       }
     }
 
-    const savedTheme = localStorage.getItem('theme');
+    // Check system preference or default
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
-    applyTheme(isDark);
+    applyTheme(prefersDark);
 
     themeBtn.addEventListener('click', () => {
-      isDark = !isDark;
-      applyTheme(isDark);
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      const isCurrentlyDark = htmlElem.classList.contains('dark');
+      applyTheme(!isCurrentlyDark);
     });
 
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2200);
+    // Share Functionality
+    const shareBtn = document.getElementById('shareBtn');
+    const toastBox = document.getElementById('toastBox');
+
+    function showToast(message) {
+      if (message) toastBox.textContent = message;
+      toastBox.classList.remove('opacity-0', 'translate-y-4');
+      toastBox.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toastBox.classList.add('opacity-0', 'translate-y-4');
+        toastBox.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
     }
 
     shareBtn.addEventListener('click', async () => {
       const shareData = {
         title: 'बांडगूळ(च)',
-        text: 'बांडगूळ(च) - एक विचारप्रवर्तक लेख',
-        url: window.location.href
+        text: 'बांडगूळ(च) - एक विचारप्रवर्तक चिंतन.',
+        url: window.location.href,
       };
 
       if (navigator.share) {
@@ -349,20 +341,26 @@
           await navigator.share(shareData);
         } catch (err) {
           if (err.name !== 'AbortError') {
-            copyToClipboard();
+            fallbackCopy();
           }
         }
       } else {
-        copyToClipboard();
+        fallbackCopy();
       }
     });
 
-    function copyToClipboard() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        showToast('Link copied to clipboard!');
-      }).catch(() => {
-        showToast('Unable to copy link');
-      });
+    function fallbackCopy() {
+      const dummyInput = document.createElement('input');
+      dummyInput.value = window.location.href;
+      document.body.appendChild(dummyInput);
+      dummyInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('लिंक क्लिपबोर्डवर कॉपी झाली!');
+      } catch (e) {
+        showToast('कृपया URL कॉपी करा');
+      }
+      document.body.removeChild(dummyInput);
     }
   </script>
 </body>
