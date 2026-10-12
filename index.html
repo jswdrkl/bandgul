@@ -8,7 +8,7 @@
   <!-- IBM Plex Sans Devanagari & Latin -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@300;400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,20 +32,34 @@
   </script>
 
   <style>
+    *, *::before, *::after {
+      font-weight: 400 !important;
+    }
+
     body {
       font-family: 'IBM Plex Sans Devanagari', 'IBM Plex Sans', sans-serif;
       word-break: keep-all;
       overflow-wrap: break-word;
       hyphens: none;
       -webkit-font-smoothing: antialiased;
+      font-weight: 400;
     }
 
-    /* Strict word unbroken justified body paragraphs */
+    /* Increased font size with justified text */
     .article-text {
       text-align: justify;
       text-justify: inter-word;
-      line-height: 2.1;
+      font-size: 1.25rem;
+      line-height: 2.2;
       letter-spacing: 0.015em;
+      font-weight: 400;
+    }
+
+    @media (max-width: 640px) {
+      .article-text {
+        font-size: 1.175rem;
+        line-height: 2.1;
+      }
     }
 
     /* SVG subtle floating and pulse animations */
@@ -71,17 +85,6 @@
     }
     .leaf-flutter {
       animation: leafBreeze 4s ease-in-out infinite alternate;
-    }
-
-    /* Toast notification animation */
-    .toast-enter {
-      opacity: 0;
-      transform: translate(-50%, 20px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .toast-show {
-      opacity: 1;
-      transform: translate(-50%, 0);
     }
   </style>
 </head>
@@ -130,7 +133,7 @@
               <stop offset="100%" stop-color="#059669" />
             </linearGradient>
 
-            <!-- Parasite Colorful Gradients (Vibrant / Golden-Amber) -->
+            <!-- Parasite Colorful Gradients -->
             <linearGradient id="parasiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#f59e0b" />
               <stop offset="50%" stop-color="#ef4444" />
@@ -146,7 +149,7 @@
 
           <!-- Group with Gentle Natural Sway -->
           <g class="sway-element">
-            <!-- Main Host Tree Branch (The 'मी' - Grounded, Sturdy) -->
+            <!-- Main Host Tree Branch -->
             <path d="M 40 180 C 130 185, 220 170, 310 155 C 390 140, 480 150, 560 140" 
                   fill="none" stroke="url(#branchGrad)" stroke-width="18" stroke-linecap="round"/>
             <path d="M 230 168 C 260 140, 275 110, 290 85" 
@@ -162,32 +165,28 @@
               <path d="M 460 120 C 455 95, 480 95, 485 110 C 490 125, 470 130, 460 120 Z" fill="url(#leafGrad2)" opacity="0.9"/>
               <path d="M 120 180 C 95 160, 110 140, 130 155 C 145 168, 135 185, 120 180 Z" fill="url(#leafGrad1)" opacity="0.85"/>
               
-              <!-- Pure fragrant natural blossoms -->
               <circle cx="295" cy="72" r="5" fill="url(#petalGrad)"/>
               <circle cx="525" cy="100" r="5.5" fill="url(#petalGrad)"/>
               <circle cx="125" cy="158" r="4.5" fill="#fef08a"/>
             </g>
 
-            <!-- Parasitic Mistletoe Cluster: बांडगूळ(च) entwining the host branch -->
+            <!-- Parasitic Mistletoe Cluster: बांडगूळ(च) -->
             <g class="parasite-glow">
-              <!-- Creeping parasitic vine winding closely onto the bark -->
               <path d="M 330 155 C 345 130, 335 110, 360 95 C 375 85, 395 90, 400 115 C 405 135, 375 145, 390 150" 
                     fill="none" stroke="url(#parasiteGrad)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="2 0.5"/>
               
-              <!-- Parasite leaves (showy, enticing, yet rootless) -->
               <path d="M 355 95 C 340 80, 350 65, 365 72 C 375 80, 370 95, 355 95 Z" fill="url(#parasiteGrad)" opacity="0.9"/>
               <path d="M 385 90 C 405 75, 415 90, 405 105 C 395 112, 380 100, 385 90 Z" fill="url(#parasiteGrad)" opacity="0.9"/>
               <path d="M 395 125 C 420 120, 420 140, 405 140 C 390 140, 385 130, 395 125 Z" fill="url(#parasiteGrad)" opacity="0.85"/>
 
-              <!-- Vibrant berries/pearls of the mistletoe -->
               <circle cx="365" cy="105" r="5" fill="#fb7185"/>
               <circle cx="380" cy="120" r="4.5" fill="#f43f5e"/>
               <circle cx="350" cy="125" r="4" fill="#fbbf24"/>
 
-              <!-- Devanagari 'च' motif symbolically nested in the parasitic cluster -->
+              <!-- Devanagari 'च' motif without bold weight -->
               <text x="365" y="118" 
                     font-family="'IBM Plex Sans Devanagari', sans-serif" 
-                    font-weight="700" 
+                    font-weight="400" 
                     font-size="24" 
                     fill="#ffffff" 
                     filter="drop-shadow(0 1px 2px rgba(0,0,0,0.5))"
@@ -197,21 +196,21 @@
         </svg>
       </div>
 
-      <!-- Main Document Title -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-amber-950 dark:text-amber-100 text-center mt-2">
+      <!-- Main Document Title (Non-bold, enlarged) -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-amber-950 dark:text-amber-100 text-center mt-2">
         बांडगूळ(च)
       </h1>
-      <div class="w-16 h-1 bg-gradient-to-r from-amber-400 via-rose-400 to-amber-500 rounded-full mt-4"></div>
+      <div class="w-16 h-0.5 bg-gradient-to-r from-amber-400 via-rose-400 to-amber-500 rounded-full mt-4"></div>
     </div>
 
     <!-- Content Section -->
-    <article class="space-y-6 text-[1.075rem] sm:text-[1.175rem] text-stone-800 dark:text-stone-200">
+    <article class="space-y-7 text-stone-800 dark:text-stone-200">
       
       <p class="article-text">
         बांडगूळ किंवा बांदी ही इतर वृक्षांच्या फांद्यांवर वाढणारी एक परजीवी वनस्पती आहे. तिला स्वतःची मुळे नसतात. आश्रयी वनस्पतीवर ती पाणी आणि क्षार यांसाठी अवलंबून असते. म्हणून त्याला ‘अर्धपरजीवी’ म्हणतात. बांदी अतिशय कमी कालावधीत वाढते. ती बऱ्याचदा मूळ वनस्पतीपेक्षा आकर्षक देखील दिसते. बांडगुळाच्या मुळ्या मूळ झाडाच्या खोडातील अन्न, पाणी शोषून घेतात व झपाट्याने वाढतात पण त्यामुळे मूळ झाड कमकुवत होते, अनुत्पादक होते आणि बांडगूळ मात्र फोफावते. अशी ही बांदी म्हणजे मूळ झाडाचा शत्रू किंवा एक प्रकारची कीडच असते. तिचे निर्दालन करण्यासाठी जिथून बांडगूळ वाढायला सुरवात झाली आहे, त्या पाठीमागे काही अंतरावरून मूळ झाडाची फांदीच छाटून टाकली तर त्याचे निर्मूलन करता येते.
       </p>
 
-      <div class="text-center text-amber-700/70 dark:text-amber-400/70 tracking-[0.5em] text-xl select-none py-2">
+      <div class="text-center text-amber-700/70 dark:text-amber-400/70 tracking-[0.5em] text-xl select-none py-2 font-normal">
         ⚝⚝⚝
       </div>
 
@@ -255,12 +254,12 @@
         ‘मी’ला त्याच्या मूळ रूपात स्वाभिमानाने आणि दिमाखाने जगायचे असेल तर त्यास अहंकाराच्या ‘च’ची बाधा होऊ नये यासाठी सतत दक्ष राहणे इष्ट असते. कारण लांबून बघताना जरी तो ‘च’ आकर्षक भासला तरी अंतिमतः ते ‘बांडगूळ-च’ असते.
       </p>
 
-      <div class="text-center text-amber-700/70 dark:text-amber-400/70 tracking-[0.5em] text-xl select-none pt-4">
+      <div class="text-center text-amber-700/70 dark:text-amber-400/70 tracking-[0.5em] text-xl select-none pt-4 font-normal">
         ⚝⚝⚝
       </div>
 
-      <div class="text-center font-normal text-stone-600 dark:text-stone-400 text-base tracking-wider pt-1 pb-6">
-        ⚝२०२५०३२१⚝
+      <div class="text-center font-normal text-stone-600 dark:text-stone-400 text-lg tracking-wider pt-1 pb-6">
+        २०२५०३२१⚝
       </div>
 
     </article>
@@ -268,9 +267,9 @@
     <div class="mt-8 mb-12 flex flex-col items-center justify-center">
       <button 
         id="shareBtn"
-        class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-700 hover:to-rose-700 text-white font-medium text-base shadow-md hover:shadow-lg active:scale-95 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+        class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-700 hover:to-rose-700 text-white font-normal text-lg shadow-md hover:shadow-lg active:scale-95 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
         </svg>
         <span>शेअर करा</span>
@@ -282,7 +281,7 @@
   <!-- Non-intrusive Toast for feedback -->
   <div 
     id="toastBox" 
-    class="fixed bottom-6 left-1/2 -translate-x-1/2 pointer-events-none z-50 px-5 py-2.5 rounded-full bg-stone-900/90 dark:bg-white/90 text-white dark:text-stone-900 text-sm font-medium shadow-xl backdrop-blur transition-all duration-300 opacity-0 translate-y-4"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 pointer-events-none z-50 px-5 py-2.5 rounded-full bg-stone-900/90 dark:bg-white/90 text-white dark:text-stone-900 text-base font-normal shadow-xl backdrop-blur transition-all duration-300 opacity-0 translate-y-4"
   >
     लिंक कॉपी झाली!
   </div>
@@ -306,7 +305,6 @@
       }
     }
 
-    // Check system preference or default
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     applyTheme(prefersDark);
 
